@@ -1,4 +1,4 @@
-package com.hadoop_rsn.core.sample;
+package com.hadoop_rsn.core.map;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
