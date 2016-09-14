@@ -9,9 +9,6 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
-import java.io.IOException;
-
-//Created by RSN on 13.09.2016.
 public class MaxTemperature {
     public static void main(String[] args) throws Exception {
         if (args.length != 2){

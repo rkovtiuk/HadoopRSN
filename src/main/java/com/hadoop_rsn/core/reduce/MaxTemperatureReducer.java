@@ -6,7 +6,6 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 import java.io.IOException;
 
-//Created by RSN on 13.09.2016.
 public class MaxTemperatureReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
 
     @Override
