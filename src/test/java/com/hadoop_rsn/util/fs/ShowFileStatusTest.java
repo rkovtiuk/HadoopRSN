@@ -1,15 +1,21 @@
 package com.hadoop_rsn.util.fs;
 
-import static org.junit.Assert.*;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileStatus;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.hdfs.MiniDFSCluster;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.OutputStream;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.lessThanOrEqualTo;
-
-import java.io.*;
-
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.*;
-import org.apache.hadoop.hdfs.MiniDFSCluster;
-import org.junit.*;
+import static org.junit.Assert.assertThat;
 
 public class ShowFileStatusTest {
 
@@ -47,7 +53,7 @@ public class ShowFileStatusTest {
         Path file = new Path("/dir/file");
         FileStatus stat = fs.getFileStatus(file);
         assertThat(stat.getPath().toUri().getPath(), is("/dir/file"));
-        assertThat(stat.isDirectory(), is(false));
+        assertThat(stat.isDir(), is(false));
         assertThat(stat.getLen(), is(7L));
         assertThat(stat.getModificationTime(),
                 is(lessThanOrEqualTo(System.currentTimeMillis())));
@@ -63,7 +69,7 @@ public class ShowFileStatusTest {
         Path dir = new Path("/dir");
         FileStatus stat = fs.getFileStatus(dir);
         assertThat(stat.getPath().toUri().getPath(), is("/dir"));
-        assertThat(stat.isDirectory(), is(true));
+        assertThat(stat.isDir(), is(true));
         assertThat(stat.getLen(), is(0L));
         assertThat(stat.getModificationTime(),
                 is(lessThanOrEqualTo(System.currentTimeMillis())));

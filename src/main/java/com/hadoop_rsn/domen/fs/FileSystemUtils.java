@@ -1,6 +1,6 @@
-package com.hadoop_rsn.core.util.fs.impl;
+package com.hadoop_rsn.domen.fs;
 
-import com.hadoop_rsn.core.util.fs.HadoopFileSystem;
+import com.hadoop_rsn.core.fs.HadoopFileSystem;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FSDataInputStream;
 import org.apache.hadoop.fs.FileSystem;

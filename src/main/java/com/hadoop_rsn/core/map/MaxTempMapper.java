@@ -7,7 +7,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
 
-public class MaxTemperatureMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
+public class MaxTempMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 
     private static final int MISSING = 9999;
 

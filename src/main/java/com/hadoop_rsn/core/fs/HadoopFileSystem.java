@@ -1,4 +1,4 @@
-package com.hadoop_rsn.core.util.fs;
+package com.hadoop_rsn.core.fs;
 
 /**
  * Class with this interfaces working with filesystem
