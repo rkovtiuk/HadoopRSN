@@ -6,6 +6,7 @@
 
     <groupId>com.haddop_rsn</groupId>
     <artifactId>hadoop_rsn</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <build>
@@ -20,6 +21,9 @@
             </plugin>
         </plugins>
     </build>
+    <modules>
+        <module>Core</module>
+    </modules>
 
     <repositories>
         <repository>
