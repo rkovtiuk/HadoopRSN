@@ -1,5 +1,6 @@
-package com.hadoop_rsn.core.map;
+package core.map;
 
+import core.parser.NcdcRecordParser;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -7,8 +8,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
 
-//Created by RSN on 13.09.2016.
-public class MaxTemperatureMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
+public class MaxTempMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 
     private static final int MISSING = 9999;
 
