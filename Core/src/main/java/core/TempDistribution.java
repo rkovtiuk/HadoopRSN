@@ -1,6 +1,7 @@
 package core;
 
-import core.parser.NcdcRecordParser;
+import core.common.JobBuilder;
+import core.common.NcdcRecordParser;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;

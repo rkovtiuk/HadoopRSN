@@ -1,4 +1,4 @@
-package core;
+package core.common;
 import java.io.IOException;
 
 import org.apache.hadoop.conf.Configuration;

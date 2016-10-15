@@ -1,6 +1,6 @@
 package core.conf;
 
-import core.parser.NcdcRecordParser;
+import core.common.NcdcRecordParser;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Partitioner;
