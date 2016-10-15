@@ -1,37 +1,95 @@
 package core;
+import java.io.IOException;
 
-import core.converter.SmallFilesToSequenceFileConverter;
-import core.fs.out.PartitionByStationUsingMultipleOutputs;
-import core.fs.out.PartitionByStationYearUsingMultipleOutputs;
-import core.reduce.MinimalMapReduceWithDefaults;
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.util.GenericOptionsParser;
+import org.apache.hadoop.util.Tool;
 
-// FIXME: 13.10.2016 
 public class JobBuilder {
 
-    public static Job parseInputAndOutput(
-            PartitionByStationYearUsingMultipleOutputs partitionByStationYearUsingMultipleOutputs,
-            Configuration conf,
-            String[] args) {
-        return null;
+    private final Class<?> driverClass;
+    private final Job job;
+    private final int extraArgCount;
+    private final String extrArgsUsage;
+
+    private String[] extraArgs;
+
+    public JobBuilder(Class<?> driverClass) throws IOException {
+        this(driverClass, 0, "");
     }
 
-    public static Job parseInputAndOutput(
-            MinimalMapReduceWithDefaults minimalMapReduceWithDefaults,
-            Configuration conf,
-            String[] strings) {
-        return null;
+    public JobBuilder(Class<?> driverClass, int extraArgCount, String extrArgsUsage) throws IOException {
+        this.driverClass = driverClass;
+        this.extraArgCount = extraArgCount;
+        this.job = new Job();
+        this.job.setJarByClass(driverClass);
+        this.extrArgsUsage = extrArgsUsage;
     }
 
-    public static Job parseInputAndOutput(
-            PartitionByStationUsingMultipleOutputs partitionByStationUsingMultipleOutputs,
-            Configuration conf,
-            String[] args) {
-        return null;
+    // vv JobBuilder
+    public static Job parseInputAndOutput(Tool tool, Configuration conf,
+                                          String[] args) throws IOException {
+
+        if (args.length != 2) {
+            printUsage(tool, "<input> <output>");
+            return null;
+        }
+        Job job = new Job(conf);
+        job.setJarByClass(tool.getClass());
+        FileInputFormat.addInputPath(job, new Path(args[0]));
+        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+        return job;
     }
 
-    public static Job parseInputAndOutput(SmallFilesToSequenceFileConverter smallFilesToSequenceFileConverter, Configuration conf, String[] args) {
-        return null;
+    public static void printUsage(Tool tool, String extraArgsUsage) {
+        System.err.printf("Usage: %s [genericOptions] %s\n\n",
+                tool.getClass().getSimpleName(), extraArgsUsage);
+        GenericOptionsParser.printGenericCommandUsage(System.err);
+    }
+    // ^^ JobBuilder
+
+    public JobBuilder withCommandLineArgs(String... args) throws IOException {
+        Configuration conf = job.getConfiguration();
+        GenericOptionsParser parser = new GenericOptionsParser(conf, args);
+        String[] otherArgs = parser.getRemainingArgs();
+        if (otherArgs.length < 2 && otherArgs.length > 3 + extraArgCount) {
+            System.err.printf("Usage: %s [genericOptions] [-overwrite] <input path> <output path> %s\n\n",
+                    driverClass.getSimpleName(), extrArgsUsage);
+            GenericOptionsParser.printGenericCommandUsage(System.err);
+            System.exit(-1);
+        }
+        int index = 0;
+        boolean overwrite = false;
+        if (otherArgs[index].equals("-overwrite")) {
+            overwrite = true;
+            index++;
+        }
+        Path input = new Path(otherArgs[index++]);
+        Path output = new Path(otherArgs[index++]);
+
+        if (index < otherArgs.length) {
+            extraArgs = new String[otherArgs.length - index];
+            System.arraycopy(otherArgs, index, extraArgs, 0, otherArgs.length - index);
+        }
+
+        if (overwrite) {
+            output.getFileSystem(conf).delete(output, true);
+        }
+
+        FileInputFormat.addInputPath(job, input);
+        FileOutputFormat.setOutputPath(job, output);
+        return this;
+    }
+
+    public Job build() {
+        return job;
+    }
+
+    public String[] getExtraArgs() {
+        return extraArgs;
     }
 }
