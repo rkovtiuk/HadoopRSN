@@ -1,6 +1,6 @@
 package core.converter;
 
-import core.JobBuilder;
+import core.common.JobBuilder;
 import core.fs.WholeFileInputFormat;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
@@ -13,7 +13,6 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 import org.apache.hadoop.mapreduce.lib.output.SequenceFileOutputFormat;
 import org.apache.hadoop.util.Tool;
-import org.apache.hadoop.util.ToolRunner;
 
 import java.io.IOException;
 

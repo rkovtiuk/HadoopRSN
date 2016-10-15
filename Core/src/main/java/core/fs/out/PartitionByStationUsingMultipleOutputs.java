@@ -1,7 +1,7 @@
 package core.fs.out;
 
-import core.JobBuilder;
-import core.parser.NcdcRecordParser;
+import core.common.JobBuilder;
+import core.common.NcdcRecordParser;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.NullWritable;
@@ -10,8 +10,6 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.output.MultipleOutputs;
-import org.apache.hadoop.util.Tool;
-import org.apache.hadoop.util.ToolRunner;
 
 import java.io.IOException;
 

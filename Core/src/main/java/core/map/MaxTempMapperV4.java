@@ -2,7 +2,7 @@ package core.map;
 
 import java.io.IOException;
 
-import core.parser.NcdcRecordParserMax;
+import core.common.NcdcRecordParserMax;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;

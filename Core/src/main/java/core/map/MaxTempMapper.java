@@ -1,6 +1,5 @@
 package core.map;
 
-import core.parser.NcdcRecordParser;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;

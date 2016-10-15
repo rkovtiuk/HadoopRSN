@@ -1,4 +1,4 @@
-package core.map;
+package core.fs;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
@@ -8,7 +8,7 @@ import org.apache.hadoop.io.SequenceFile;
 
 import java.net.URI;
 
-public class MapFileFixer {
+public class MapFileFixer implements HadoopFileSystem{
     public static long mapFix(String mapUri) throws Exception{
         Configuration conf = new Configuration();
         FileSystem fs = FileSystem.get(URI.create(mapUri), conf);
