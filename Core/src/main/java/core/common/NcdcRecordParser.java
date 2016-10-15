@@ -7,7 +7,7 @@ import org.apache.hadoop.record.compiler.generated.ParseException;
 
 import java.util.Date;
 
-public class NcdcRecordParser {
+public class NcdcRecordParser extends NcdcRecordParserMax{
 
     private static final int MISSING_TEMPERATURE = 9999;
 
