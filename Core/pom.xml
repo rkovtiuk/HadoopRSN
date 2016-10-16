@@ -73,6 +73,25 @@
             <artifactId>hadoop-common</artifactId>
             <version>2.0.0-cdh4.3.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.avro</groupId>
+            <artifactId>avro</artifactId>
+            <version>1.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.avro</groupId>
+            <artifactId>avro-mapred</artifactId>
+            <classifier>hadoop2</classifier>
+            <version>1.8.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.twitter</groupId>
+            <artifactId>parquet-avro</artifactId>
+            <version>1.6.0</version>
+        </dependency>
+
         <!--/ FOR TEST ONLY /-->
         <dependency>
             <groupId>org.apache.hadoop</groupId>
