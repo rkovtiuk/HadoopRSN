@@ -1,6 +1,6 @@
 package core.reduce;
 
-import core.JobBuilder;
+import core.common.JobBuilder;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;

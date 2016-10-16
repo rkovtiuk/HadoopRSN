@@ -2,7 +2,7 @@ package core.map;
 
 import java.io.IOException;
 
-import core.parser.NcdcRecordParser;
+import core.common.NcdcRecordParserMax;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -10,7 +10,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 public class MaxTempMapperV3 extends Mapper<LongWritable, Text, Text, IntWritable> {
 
-    private NcdcRecordParser parser = new NcdcRecordParser();
+    private NcdcRecordParserMax parser = new NcdcRecordParserMax();
 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
