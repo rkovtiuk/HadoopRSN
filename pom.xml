@@ -22,7 +22,7 @@
         </plugins>
     </build>
     <modules>
-        <module>Core</module>
+        <module>core</module>
     </modules>
 
     <repositories>
