@@ -1,4 +1,4 @@
-
+package widget;
 
 import java.io.IOException;
 import org.apache.avro.Schema;

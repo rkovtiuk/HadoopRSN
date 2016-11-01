@@ -1,3 +1,5 @@
+package widget;
+
 import java.io.IOException;
 
 import com.cloudera.sqoop.lib.RecordParser.ParseError;
