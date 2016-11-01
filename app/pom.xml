@@ -22,24 +22,29 @@
         <dependency>
             <groupId>org.apache.pig</groupId>
             <artifactId>pig</artifactId>
+            <version>0.16.0</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <version>4.12</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.hive</groupId>
             <artifactId>hive-common</artifactId>
+            <version>2.1.0-cdh6.x-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.apache.hive</groupId>
             <artifactId>hive-exec</artifactId>
+            <version>2.1.0-cdh6.x-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.hbase</groupId>
             <artifactId>hbase-client</artifactId>
+            <version>2.0.0-cdh6.x-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.apache.hbase</groupId>
@@ -49,28 +54,42 @@
         <dependency>
             <groupId>org.apache.crunch</groupId>
             <artifactId>crunch-core</artifactId>
-            <version>${crunch.version}</version>
+            <version>0.14.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.crunch</groupId>
             <artifactId>crunch-test</artifactId>
-            <version>${crunch.version}</version>
+            <version>0.14.0</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>3.5.2-alpha</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.sqoop</groupId>
             <artifactId>sqoop</artifactId>
             <classifier>hadoop200</classifier>
+            <version>2.0.0-mapr-1405</version>
         </dependency>
         <dependency>
             <groupId>org.apache.avro</groupId>
             <artifactId>avro</artifactId>
+            <version>1.8.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.avro</groupId>
             <artifactId>avro-mapred</artifactId>
             <classifier>hadoop2</classifier>
+            <version>1.8.1</version>
         </dependency>
     </dependencies>
 </project>
