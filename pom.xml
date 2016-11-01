@@ -23,6 +23,7 @@
     </build>
     <modules>
         <module>core</module>
+        <module>app</module>
     </modules>
 
     <repositories>
